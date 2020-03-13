@@ -1,23 +1,52 @@
 import Link from "next/link";
+import React, { useState } from "react";
+
+const navLinks = [
+    {
+        text: 'Javascript',
+        href: '/javascript'
+    },
+    {
+        text: 'React',
+        href: '/react'
+    },
+    {
+        text: 'CSS',
+        href: '/css',
+    }
+]
+
+const NavItem = ({ text, href, subNav }) => {
+    const [open, setOpen] = useState(false)
+    const toggleItem = () => setOpen(!open)
+    return (
+        <div>
+            <Link href={href}>
+                <a>{text}</a>
+            </Link>
+            { subNav && <button onClick={toggleItem}> > </button>}
+            { subNav && subNav.length > 0 && open && <div>
+                {subNav.map((link) => (
+                    <Link href={link.href} key={link.text}><a>{link.text}</a></Link>
+                ))}
+            </div>}
+
+        </div>
+    )
+}
 
 const Navbar = () => (
-  <div className="sidenav">
-    <Link href="/">
-      <a>Home</a>
-    </Link>
-    <Link href="/about">
-      <a>About</a>
-    </Link>
-    <Link href="/contact">
-      <a>Contact</a>
-    </Link>
-    <Link href="/blog">
-      <a>Blogs</a>
-    </Link>
+    <div className="sidenav">
+        <NavItem text="Home" href="/"/>
+        <NavItem text="About" href="/about"/>
+        <NavItem text="Contact" href="/contact"/>
+        <NavItem text="Blogs" href="/blog" subNav={navLinks} />
+        {/* 
+    
     <Link href="/tips">
       <a>Tip & Tricks</a>
-    </Link>
-    <style jsx>{`
+    </Link> */}
+        <style jsx>{`
       .sidenav {
         height: 100%;
         width: 160px;
@@ -58,7 +87,7 @@ const Navbar = () => (
         }
       }
     `}</style>
-  </div>
+    </div>
 );
 
 export default Navbar;

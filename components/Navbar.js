@@ -15,7 +15,7 @@ const Navbar = () => (
       <a>Blogs</a>
     </Link>
     <Link href="/tips">
-      <a>Tip N Tricks</a>
+      <a>Tip & Tricks</a>
     </Link>
     <style jsx>{`
       .sidenav {

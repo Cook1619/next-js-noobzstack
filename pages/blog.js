@@ -1,8 +1,12 @@
+import React, { useEffect } from "react";
 import Layout from "../components/Layout";
 import Prism from "prismjs";
 
 const Blog = () => {
-  Prism.highlightAll();
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <div className="main">
       <Layout>

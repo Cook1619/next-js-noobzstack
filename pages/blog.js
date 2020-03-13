@@ -1,10 +1,10 @@
 import Layout from "../components/Layout";
 
-const About = () => {
+const Blog = () => {
   return (
     <div className="main">
       <Layout>
-        <h1>This is the about page</h1>
+        <h1>This is the blog page</h1>
       </Layout>
       <style jsx>{`
       .main {
@@ -16,4 +16,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Blog;

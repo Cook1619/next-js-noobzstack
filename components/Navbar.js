@@ -1,36 +1,60 @@
-import Link from 'next/link';
-
-const linkStyle = {
-  padding: '6px 8px 6px 16px',
-  textDecoration: 'none',
-  fontSize: '25px',
-  color: '#818181',
-  display: 'block'
-};
-
-const navbar = {
-  height: '100%',
-  width: '160px',
-  position: 'fixed',
-  zIndex: '1',
-  top: '0',
-  left: '0',
-  backgroundColor: '#111',
-  overflowX: 'hidden',
-  paddingTop: '20px'
-}
+import Link from "next/link";
 
 const Navbar = () => (
-  <div style={navbar}>
+  <div className="sidenav">
     <Link href="/">
-      <a style={linkStyle}>Home</a>
+      <a>Home</a>
     </Link>
     <Link href="/about">
-      <a style={linkStyle}>About</a>
+      <a>About</a>
     </Link>
     <Link href="/contact">
-      <a style={linkStyle}>Contact</a>
+      <a>Contact</a>
     </Link>
+    <Link href="/blog">
+      <a>Blogs</a>
+    </Link>
+    <style jsx>{`
+      .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      /* The navigation menu links */
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        color: black;
+        display: block;
+      }
+
+      /* When you mouse over the navigation links, change their color */
+      .sidenav a:hover {
+        background-color: whitesmoke;
+      }
+      .sidenav a:focus {
+        color: #764abc;
+        background-color: whitesmoke;
+      }
+
+      /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+    `}</style>
   </div>
 );
 

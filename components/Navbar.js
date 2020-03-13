@@ -14,6 +14,9 @@ const Navbar = () => (
     <Link href="/blog">
       <a>Blogs</a>
     </Link>
+    <Link href="/tips">
+      <a>Tip N Tricks</a>
+    </Link>
     <style jsx>{`
       .sidenav {
         height: 100%;
@@ -41,7 +44,7 @@ const Navbar = () => (
         background-color: whitesmoke;
       }
       .sidenav a:focus {
-        color: #764abc;
+        color: #6741a3;
         background-color: whitesmoke;
       }
 

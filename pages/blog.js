@@ -1,17 +1,27 @@
 import Layout from "../components/Layout";
+import Prism from "prismjs";
 
 const Blog = () => {
+  Prism.highlightAll();
   return (
     <div className="main">
       <Layout>
-        <h1>This is the blog page</h1>
+        <pre>
+          <code className="language-javascript">
+            {`
+            function add(num){
+              return num + num;
+            } 
+            `}
+          </code>
+        </pre>
       </Layout>
       <style jsx>{`
-      .main {
-        margin-left: 160px;
-        padding: 0px 10px;
-      }
-    `}</style>
+        .main {
+          margin-left: 160px;
+          padding: 0px 10px;
+        }
+      `}</style>
     </div>
   );
 };

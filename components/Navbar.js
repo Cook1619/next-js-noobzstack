@@ -1,5 +1,4 @@
-import Link from "next/link";
-import React, { useState } from "react";
+import NavItem from './NavItem'
 
 const navLinks = [
     {
@@ -16,36 +15,13 @@ const navLinks = [
     }
 ]
 
-const NavItem = ({ text, href, subNav }) => {
-    const [open, setOpen] = useState(false)
-    const toggleItem = () => setOpen(!open)
-    return (
-        <div>
-            <Link href={href}>
-                <a>{text}</a>
-            </Link>
-            { subNav && <button onClick={toggleItem}> > </button>}
-            { subNav && subNav.length > 0 && open && <div>
-                {subNav.map((link) => (
-                    <Link href={link.href} key={link.text}><a>{link.text}</a></Link>
-                ))}
-            </div>}
-
-        </div>
-    )
-}
-
 const Navbar = () => (
     <div className="sidenav">
-        <NavItem text="Home" href="/"/>
-        <NavItem text="About" href="/about"/>
-        <NavItem text="Contact" href="/contact"/>
+        <NavItem text="Home" href="/" />
+        <NavItem text="About" href="/about" />
+        <NavItem text="Contact" href="/contact" />
         <NavItem text="Blogs" href="/blog" subNav={navLinks} />
-        {/* 
-    
-    <Link href="/tips">
-      <a>Tip & Tricks</a>
-    </Link> */}
+        <NavItem text="Tips & Tricks" href="/tips" subNav={navLinks} />
         <style jsx>{`
       .sidenav {
         height: 100%;
@@ -58,33 +34,6 @@ const Navbar = () => (
         overflow-x: hidden;
         padding-top: 20px;
       }
-
-      /* The navigation menu links */
-      .sidenav a {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 15px;
-        color: black;
-        display: block;
-      }
-
-      /* When you mouse over the navigation links, change their color */
-      .sidenav a:hover {
-        background-color: whitesmoke;
-      }
-      .sidenav a:focus {
-        color: #6741a3;
-        background-color: whitesmoke;
-      }
-
-      /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-      @media screen and (max-height: 450px) {
-        .sidenav {
-          padding-top: 15px;
-        }
-        .sidenav a {
-          font-size: 18px;
-        }
       }
     `}</style>
     </div>

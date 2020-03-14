@@ -20,12 +20,6 @@ export default function Tip() {
           <TipLink title="Javascript Tip" />
         </ul>
       </Layout>
-      <style jsx>{`
-        .main {
-          margin-left: 160px;
-          padding: 0px 10px;
-        }
-      `}</style>
     </div>
   );
 }

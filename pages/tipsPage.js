@@ -10,12 +10,6 @@ const Tipspage = () => {
         <h1>{router.query.title}</h1>
         <p>This is the blog post content.</p>
       </Layout>
-      <style jsx>{`
-        .main {
-          margin-left: 160px;
-          padding: 0px 10px;
-        }
-      `}</style>
     </div>
   );
 };

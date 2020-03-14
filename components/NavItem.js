@@ -1,15 +1,16 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { FaChevronRight } from 'react-icons/fa'
 
 const NavItem = ({ text, href, subNav }) => {
     const [open, setOpen] = useState(false)
     const toggleItem = () => setOpen(!open)
     return (
         <div className="sidenav">
-            <Link href={href}>
+            {!subNav &&<Link href={href}>
                 <a>{text}</a>
-            </Link>
-            {subNav && <button onClick={toggleItem}> > </button>}
+            </Link>}
+            {subNav && <div onClick={toggleItem}>{text}<FaChevronRight /></div>}
             {subNav && subNav.length > 0 && open && <div>
                 {subNav.map((link) => (
                     <Link href={link.href} key={link.text}><a>{link.text}</a></Link>
